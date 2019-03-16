@@ -1,1 +1,34 @@
 /* pages/history/history.wxss */
+page{
+  background-color: lightcyan;
+}
+.container-title{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.container{
+  padding-top: 2rpx;
+  display: flex;
+  flex-direction:row;
+  width: 100%;
+  flex-wrap: true;
+  flex-flow: row wrap;
+}
+.container-his{
+  border: 1rpx black solid;
+  display: flex;
+  flex-direction:column;
+  width: 240rpx;
+  height: 250rpx;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.container-his-pic{
+  width: 70%;
+  height: 192rpx;
+}

@@ -1,0 +1,14 @@
+<view class="container-title">
+  <text>历史记录</text>
+</view>
+
+<view class='container'>
+  <block wx:for="{{hisList}}" wx:for-item="item">
+    <view class='container-his'  bindlongpress='longPress'>
+      <text>{{item.result[0].name}}</text>
+      <image class="container-his-pic" src="{{item.pic}}"/>
+    </view>
+  </block>
+
+
+</view>
