@@ -3,10 +3,10 @@
 </view>
 
 <view class='container'>
-  <block wx:for="{{hisList}}" wx:for-item="item">
-    <view class='container-his'  bindlongpress='longPress'>
+  <block wx:for="{{hisList}}" wx:for-item="item" wx:for-index="idx" wx:key="key" >
+    <view class='container-his'  bindlongpress='longPress' data-temp-id="{{idx}}">
       <text>{{item.result[0].name}}</text>
-      <image class="container-his-pic" src="{{item.pic}}"/>
+      <image wx:if="{{item.pic}}"  class="container-his-pic" src="{{item.pic}}"/>
     </view>
   </block>
 

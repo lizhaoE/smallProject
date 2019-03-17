@@ -6,35 +6,58 @@ Page({
   data: {
    
   },
-  longPress: function () {
-    wx.showModal({
-      title: '提醒',
-      content: '你将清空小程序本地所有缓存！',
-      success: function (res) {
-        if (res.confirm) { //判断用户是否点击了确定
-          wx.clearStorageSync();
-        }
-      }
-    })
+  execAddDataToStroage:function(data){ //增加数据到缓存
+    var res = wx.getStorageSync("hisList");
+    var afterRes = res.unshift(data);
+    return afterRes;
   },
 
-  execSetStorageSync: function () { //同步临时数据到缓存
-    var res = require("../temp_for_test/data.js").temp_data
-    wx.setStorageSync("temp_data", res)
-  },
-  getAllTempData: function () {//从缓存获取数据
-    var res = wx.getStorageSync("temp_data");
-    console.log(res);
+  execDelDataToStorage: function (id) { //删除缓存指定数据
+    var res = wx.getStorageSync("hisList");
+    res.splice(id, 1);
     return res;
   },
 
+  execClearDataToStorage: function (id) { //清空缓存数据
+    wx.clearStorageSync();
+  },
+
+  execGetAllTempData: function () {//从缓存获取数据
+    var res = wx.getStorageSync("hisList");
+    return res;
+  },
+  
+  execSetStorageSync: function (res) { //同步数据到缓存
+    wx.setStorageSync("hisList", res)
+  },
+
+
+  longPress: function (event) {
+    var that = this;
+    var id = event.currentTarget.dataset.tempId;
+    wx.showModal({
+      title: '提醒',
+      content: '确定后你讲删除该记录！',
+      success: function (res) {
+        if (res.confirm) { //判断用户是否点击了确定
+          res1 = wx.getStorageSync("hisList")
+          var res1 = that.execDelDataToStorage(id);
+          that.execSetStorageSync(res1);
+          that.setData({
+            hisList: res1
+          })
+        }
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //this.execSetStorageSync()    //屏蔽临时数据，直接操作缓存数据
+    this.execSetStorageSync(require("../temp_for_test/data.js").temp_data)    //屏蔽临时数据，直接操作缓存数据
     this.setData({
-      hisList: this.getAllTempData()
+      hisList: this.execGetAllTempData()
     })
   },
 
