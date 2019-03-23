@@ -1,54 +1,92 @@
 //index.js
-//获取应用实例
-const app = getApp()
+var app = getApp();
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    
   },
-  //事件处理函数
-  bindViewTap: function() {
+
+  wait:function(){    //需要在等待中显示
     wx.navigateTo({
-      url: '../logs/logs'
+    url: '/pages/results/wait/wait',
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+  //拍照图片事件处理函数
+  camera_pic_serarch: function(){
+    var _this = this;
+    wx.chooseImage({
+      count: 1, // 限定只能选择一张照片
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图
+      sourceType: ['camera'], // 指定选择相机
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表
+        var tempFilePaths = res.tempFilePaths;
+        wx.uploadFile({
+          url: 'http://example.weixin.qq.com/upload', //接口地址，格式需要调整,必须是https
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+
+          success: function (res) {    //上传成功获取到数据
+            var data = res.data
+              //获取数据并加入到链接中供success页面使用
+              wx.navigateTo({
+                url: "/pages/results/success/success?name=" + data.name + "&brief=" + data.brief
+              });
+          },
+
+           fail: function (res) {         //失败处理
+            console.log("addfood fail", res);
+             wx.navigateTo({
+               url: "/pages/results/fail/fail"
+             });
+          },
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
     })
+  },
+  
+  //本地图片事件处理函数
+  local_pic_search: function () {
+    var _this = this;
+    wx.chooseImage({
+      count: 1, // 限定只能选择一张照片
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图
+      sourceType: ['album'], // 指定选择相册
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表
+        var tempFilePaths = res.tempFilePaths;
+        wx.uploadFile({
+          url: 'https://api.weixin.qq.com/upload', //接口地址，格式需要调整,必须是https
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'test'
+          },
+          
+          success: function (res) {        //上传成功获取到数据
+            var data = res.data
+              //获取数据并加入到链接中供success页面使用
+              wx.navigateTo({
+                url: "/pages/results/success/success?name=" + data.name + "&brief=" + data.brief
+              });
+          },
+
+          fail: function (res) {         //失败处理
+            wx.navigateTo({
+              url: "/pages/results/fail/fail"
+            });
+          },
+          
+        })
+      }
+    })
+  },
+
+
+  onLoad: function () {
+  
   }
 })

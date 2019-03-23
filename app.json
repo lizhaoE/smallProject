@@ -1,23 +1,34 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/results/success/success",
+    "pages/results/wait/wait",
+    "pages/results/fail/fail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#F7F7FA",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "borderStyle":"white",
+    "selectedColor":"blue",
+    "color":"black",
+    "position":"bottom",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath":"src/ico/search.png",
+        "selectedIconPath": "src/ico/search_selected.png"
       },
       {
         "pagePath": "pages/history/history",
-        "text": "历史"
+        "text": "历史",
+        "iconPath": "src/ico/history.png",
+        "selectedIconPath": "src/ico/history_selected.png"
       }
     ]
   }

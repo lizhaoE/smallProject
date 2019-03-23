@@ -1,21 +1,40 @@
 /**index.wxss**/
-.userinfo {
+.container{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.pic{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.camera_font_style{
+  margin-top: 170rpx;
+  font-size: 28rpx;
+  line-height: 50rpx;
+  color: black;
+  margin-bottom: 0rpx;
 }
-
-.userinfo-nickname {
-  color: #aaa;
+.camera_pic_search{
+  margin-top: 0rpx;
+  height: 300rpx;
+  width: 300rpx;
+  border-radius: 150rpx;
+  background-image: "src/pic/morning_glory.jpg"
 }
-
-.usermotto {
-  margin-top: 200px;
+.local_pic_search{
+  margin-top: 250rpx;
+  border:1px solid #009688;
+  width: 300rpx;
+  height: 100rpx;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #009688;
+  
+}
+.local_pic_font{
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: black;  
 }
