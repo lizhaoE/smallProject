@@ -37,12 +37,28 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
+					"name": "成功",
+					"pathName": "pages/results/success/success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
 					"name": "历史查看",
-					"pathName": "pages/history/history"
+					"pathName": "pages/history/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "失败查看",
+					"pathName": "pages/results/fail/fail",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

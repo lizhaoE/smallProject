@@ -1,2 +1,5 @@
-<!--pages/results/fail/fail.wxml-->
-<text>pages/results/fail/fail.wxml</text>
+<view class="container">
+  <view class="container_grip">
+    <image class="pic_404" src="/src/pic/404.png"> </image>
+  </view>
+</view>

@@ -17,13 +17,14 @@
   margin-bottom: 0rpx;
 }
 .camera_pic_search{
+  box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
   margin-top: 0rpx;
   height: 300rpx;
   width: 300rpx;
   border-radius: 150rpx;
-  background-image: "src/pic/morning_glory.jpg"
 }
 .local_pic_search{
+  box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
   margin-top: 250rpx;
   border:1px solid #009688;
   width: 300rpx;

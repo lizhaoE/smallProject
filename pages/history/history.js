@@ -37,30 +37,34 @@ Page({
     var id = event.currentTarget.dataset.tempId;
     wx.showModal({
       title: '提醒',
-      content: '确定后你讲删除该记录！',
+      content: '确定后你将删除记录！',
       success: function (res) {
         if (res.confirm) { //判断用户是否点击了确定
-          res1 = wx.getStorageSync("hisList")
-          var res1 = that.execDelDataToStorage(id);
-          that.execSetStorageSync(res1);
-          that.setData({
-            hisList: res1
-          })
+        that.execClearDataToStorage()
         }
       }
     })
-    
+  },
+
+  execGetStorage: function (response) { //同步数据到缓存并跳转到结果页面
+    var _this = this;
+    wx.getStorage({
+      key: response,
+      success: function (res) {
+        _this.setData({
+          responseList: res.data
+        })
+      }
+
+    })
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.execSetStorageSync(require("../temp_for_test/data.js").temp_data)    //屏蔽临时数据，直接操作缓存数据
-    this.setData({
-      hisList: this.execGetAllTempData()
-    })
+    this.execGetStorage("responseList")
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
