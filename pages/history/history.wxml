@@ -1,5 +1,5 @@
-<view class="container">
-  <text bindlongpress="longPress" class="title">历史记录</text>
+<view class="container" wx:if="{{responseList}}">
+  <text bindlongpress="longPress" class="title">记录删除</text>
   <text class="point">长按清除</text>
 </view>
 

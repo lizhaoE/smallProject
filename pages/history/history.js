@@ -54,8 +54,7 @@ Page({
       success: function (res) {
         _this.setData({                  //从缓存获取成功执行渲染
           responseList: res.data      
-        }),
-        console.log(res.data)
+        }) 
       },
       fail: function (res) {             //从缓存获取失败或未查询到时执行渲染
         _this.setData({
@@ -116,6 +115,5 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    console.log("share")
   }
 })
