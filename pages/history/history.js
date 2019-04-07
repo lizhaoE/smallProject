@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-   
+    responseList:""
   },
   execAddDataToStroage:function(data){ //增加数据到缓存
     var res = wx.getStorageSync("hisList");
@@ -34,56 +34,61 @@ Page({
 
   longPress: function (event) {
     var that = this;
-    var id = event.currentTarget.dataset.tempId;
+    //var id = event.currentTarget.dataset.tempId;  单个删除ID获取，已经屏蔽，目前采用清空。
     wx.showModal({
       title: '提醒',
       content: '确定后你将删除记录！',
       success: function (res) {
         if (res.confirm) { //判断用户是否点击了确定
-        that.execClearDataToStorage()
+        that.execClearDataToStorage(),
+          that.execGetStorageAndRender("responseList") 
         }
       }
     })
   },
-
-  execGetStorage: function (response) { //同步数据到缓存并跳转到结果页面
+  
+  execGetStorageAndRender: function (response) {  //从缓存获取数据并渲染页面
     var _this = this;
     wx.getStorage({
       key: response,
       success: function (res) {
+        _this.setData({                  //从缓存获取成功执行渲染
+          responseList: res.data      
+        }),
+        console.log(res.data)
+      },
+      fail: function (res) {             //从缓存获取失败或未查询到时执行渲染
         _this.setData({
-          responseList: res.data
+          responseList: ""
         })
       }
-
     })
-
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.execGetStorage("responseList")
+  onLoad: function (options){
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.execGetStorageAndRender("responseList") //页面启动渲染时获取并渲染
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
@@ -104,13 +109,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+   
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    console.log("share")
   }
 })
