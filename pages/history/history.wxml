@@ -1,16 +1,15 @@
 <view class="container" wx:if="{{responseList}}">
-  <text bindlongpress="longPress" class="title">记录删除</text>
+  <text bindlongpress="longPress"  class="title">记录删除</text>
   <text class="point">长按清除</text>
 </view>
 
 <view class="container_from_success" wx:if="{{responseList}}"> 
   <view class="container_grip" >
     <view class="image_style" >
-      <image class="image" src="{{responseList[0].baike_info.image_url}}">
+      <image class="image" src="{{image_url_https}}">
       </image>
     </view>
   </view>
-
   <view class="container_grip">
     <view class="text_brief">
       <text class="name">【{{responseList[0].name}}】</text>

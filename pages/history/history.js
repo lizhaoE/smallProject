@@ -4,7 +4,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    responseList:""
+    responseList:"",
+    image_url_https:""
   },
   execAddDataToStroage:function(data){ //增加数据到缓存
     var res = wx.getStorageSync("hisList");
@@ -53,7 +54,8 @@ Page({
       key: response,
       success: function (res) {
         _this.setData({                  //从缓存获取成功执行渲染
-          responseList: res.data      
+          responseList: res.data,
+          image_url_https: res.data[0].baike_info.image_url.replace("http", "https")     
         }) 
       },
       fail: function (res) {             //从缓存获取失败或未查询到时执行渲染

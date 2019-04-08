@@ -10,7 +10,8 @@ Page({
       key: response,
       success: function (res) {
         _this.setData({
-          responseList:res.data
+          responseList:res.data,
+          image_url_https: res.data[0].baike_info.image_url.replace("http", "https") 
         })
       }
       
