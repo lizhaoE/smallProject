@@ -39,7 +39,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -60,6 +60,12 @@
 					"name": "失败查看",
 					"pathName": "pages/results/fail/fail",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "不是植物",
+					"pathName": "pages/results/notplant/notplant",
 					"scene": null
 				}
 			]

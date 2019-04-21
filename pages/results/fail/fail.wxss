@@ -18,5 +18,7 @@
   flex-direction: column;
   margin-top: 30rpx;
   width: 650rpx;
-  
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: black;
 }

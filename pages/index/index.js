@@ -18,6 +18,13 @@ Page({
     
     })
   },
+
+  notPlant: function () {
+    wx.navigateTo({
+      url: '/pages/results/notplant/notplant',
+    })
+  },
+
   successSearch: function (res) {           //拍照&图片上传查询公共函数
     var _this = this;
     var tempFilePaths = res.tempFilePaths; // 返回选定照片的本地文件路径列表
@@ -47,7 +54,7 @@ Page({
               method: 'POST',
               success(res) {
                 if(res.data.result[0].name === "非植物"){
-                  console.log(res.data.result[0].name)
+                  _this.notPlant()
                 }
                 else{
                   _this.execSetStorage(res)

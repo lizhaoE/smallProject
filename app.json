@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/history/history",
     "pages/results/success/success",
-    "pages/results/fail/fail"
+    "pages/results/fail/fail",
+    "pages/results/notplant/notplant"
   ],
   "window": {
     "backgroundTextStyle": "light",
