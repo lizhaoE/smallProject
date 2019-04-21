@@ -1,8 +1,3 @@
-<view class="container" wx:if="{{responseList}}">
-  <text bindlongpress="longPress"  class="title">记录删除</text>
-  <text class="point">长按清除</text>
-</view>
-
 <view class="container_from_success" wx:if="{{responseList}}"> 
   <view class="container_grip" >
     <view class="image_style" >
@@ -26,4 +21,10 @@
    </view>
  </view>
 
+</view>
+
+
+<view class="container" wx:if="{{responseList}}">
+  <text bindlongpress="longPress"  class="title">记录删除</text>
+   <text class="point">长按清除</text>
 </view>
