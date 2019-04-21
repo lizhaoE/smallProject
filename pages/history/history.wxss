@@ -40,6 +40,8 @@
   margin-top: 30rpx;
   width: 650rpx;
   background-color: #F7F7FA;
+  padding-bottom: 20px;
+  padding-top: 20px;
 }
 .image_style{ 
   display: flex;
