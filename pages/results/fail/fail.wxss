@@ -7,17 +7,16 @@
   height: 1100rpx;
 }
 .pic_404{
-  box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
   height: 300rpx;
   width: 300rpx;
   border-radius: 150rpx;
+  box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
 }
 .container_grip{
-  box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
   display: flex;
   align-items: center;
   flex-direction: column;
   margin-top: 30rpx;
   width: 650rpx;
-  background-color: #F7F7FA;
+  
 }
