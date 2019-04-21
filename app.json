@@ -1,26 +1,26 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/history/history",
     "pages/results/success/success",
     "pages/results/fail/fail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F7F7FA",
     "navigationBarTitleText": "小草",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "borderStyle":"white",
-    "selectedColor":"blue",
-    "color":"black",
-    "position":"bottom",
+    "borderStyle": "white",
+    "selectedColor": "blue",
+    "color": "black",
+    "position": "bottom",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath":"src/ico/search.png",
+        "iconPath": "src/ico/search.png",
         "selectedIconPath": "src/ico/search_selected.png"
       },
       {
@@ -30,5 +30,6 @@
         "selectedIconPath": "src/ico/history_selected.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

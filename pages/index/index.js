@@ -18,7 +18,7 @@ Page({
     
     })
   },
-  successSearch: function (res) {           //排查&相册上传查询公共函数
+  successSearch: function (res) {           //拍照&图片上传查询公共函数
     var _this = this;
     var tempFilePaths = res.tempFilePaths; // 返回选定照片的本地文件路径列表
     wx.getFileSystemManager().readFile({
@@ -46,7 +46,12 @@ Page({
               },
               method: 'POST',
               success(res) {
-                _this.execSetStorage(res)
+                if(res.data.result[0].name === "非植物"){
+                  console.log(res.data.result[0].name)
+                }
+                else{
+                  _this.execSetStorage(res)
+                }
               },
               fail: function () {
                 wx.navigateTo({
