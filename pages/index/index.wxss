@@ -6,8 +6,13 @@
 }
 .pic{
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  margin-top: 30rpx;
+  width: 650rpx;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: black;  
 }
 .camera_font_style{
   margin-top: 170rpx;
@@ -18,7 +23,6 @@
 }
 .camera_pic_search{
   box-shadow:0px 2px 5px 5px rgb(232, 232, 235);
-  margin-top: 0rpx;
   height: 300rpx;
   width: 300rpx;
   border-radius: 150rpx;
