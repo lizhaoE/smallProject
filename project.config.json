@@ -64,7 +64,7 @@
 				},
 				{
 					"id": -1,
-					"name": "不是植物",
+					"name": "不是车",
 					"pathName": "pages/results/notplant/notplant",
 					"scene": null
 				}
