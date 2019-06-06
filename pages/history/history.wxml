@@ -7,8 +7,8 @@
   </view>
   <view class="container_grip">
     <view class="text_brief">
-      <text class="name">【{{responseList[0].name}}】</text>
-      <text class="text">{{responseList[0].baike_info.description}}</text>
+      <text class="name" selectable="true">【{{responseList[0].name}}】</text>
+      <text class="text" selectable="true">{{responseList[0].baike_info.description}}</text>
     </view>
   </view>
 
@@ -16,7 +16,7 @@
    <text class="name">【联想】</text>
     <view class="relation_flower">
       <block wx:for="{{responseList}}" wx:for-item="item"  wx:key="key" >
-        <text>【{{item.name}}】</text>
+        <text selectable="true">【{{item.name}}】</text>
       </block>
    </view>
  </view>
