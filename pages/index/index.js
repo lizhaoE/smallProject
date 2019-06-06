@@ -61,7 +61,7 @@ Page({
               },
               method: 'POST',
               success(res) {
-                if (res.data.result[0].score === 1.0){
+                if (res.data.result[0].score === 0){
                   _this.notPlant()
                 }
                 else{
