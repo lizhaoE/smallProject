@@ -10,7 +10,7 @@
   align-items: center;
 }
 .camera_font_style{
-  margin-top: 170rpx;
+  margin-top: 100rpx;
   font-size: 28rpx;
   line-height: 50rpx;
   color: black;

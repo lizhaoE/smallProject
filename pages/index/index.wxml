@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <view class="pic" catchtap='camera_pic_serarch'>
-    <text class="camera_font_style">拍照</text>
+    <text class="camera_font_style">拍照识别</text>
     <image class="camera_pic_search" src="/src/pic/morning_glory.jpg"> </image>
   </view>
 

@@ -19,6 +19,13 @@ Page({
     })
   },
 
+  imageAddressSetStorage: function (url) { //存储图片地址
+    wx.setStorage({
+      key: 'imageAddress',
+      data: url,
+    })
+  },
+
   notPlant: function () {
     wx.navigateTo({
       url: '/pages/results/notplant/notplant',
@@ -28,6 +35,7 @@ Page({
   successSearch: function (res) {           //拍照&图片上传查询公共函数
     var _this = this;
     var tempFilePaths = res.tempFilePaths; // 返回选定照片的本地文件路径列表
+    _this.imageAddressSetStorage(tempFilePaths[0]),
     wx.getFileSystemManager().readFile({
       filePath: tempFilePaths[0], //选择图片返回的相对路径
       encoding: 'base64', //编码格式
@@ -53,7 +61,7 @@ Page({
               },
               method: 'POST',
               success(res) {
-                if(res.data.result[0].name === "非植物"){
+                if (res.data.result[0].score === 1.0){
                   _this.notPlant()
                 }
                 else{

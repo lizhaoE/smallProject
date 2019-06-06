@@ -7,6 +7,23 @@ Page({
     responseList:"",
     image_url_https:""
   },
+
+  //获取图片地址
+  imageAddressGetStorage: function () {
+    var res = wx.getStorageSync("imageAddress");
+    return res;
+  },
+
+  //http转https
+  http_https: function (url) {
+    if (url == undefined) {
+      return this.imageAddressGetStorage()
+    }
+    else {
+      return url.replace("http", "https")
+    }
+
+  },
   execAddDataToStroage:function(data){ //增加数据到缓存
     var res = wx.getStorageSync("hisList");
     var afterRes = res.unshift(data);
@@ -55,7 +72,7 @@ Page({
       success: function (res) {
         _this.setData({                  //从缓存获取成功执行渲染
           responseList: res.data,
-          image_url_https: res.data[0].baike_info.image_url.replace("http", "https")     
+          image_url_https: _this.http_https(res.data[0].baike_info.image_url)    
         }) 
       },
       fail: function (res) {             //从缓存获取失败或未查询到时执行渲染
