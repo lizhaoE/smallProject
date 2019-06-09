@@ -43,39 +43,32 @@ Page({
         var imageStr = res.data;
         //  console.log('data:image/png;base64,' + res.data)
         var url = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant';
-        wx.getStorage({
-          key: 'baidu_token',
-          success: function (res) {
-            var token = res.data;
-            // console.log('token,' + token);
-            _this.waitFuc();
-            wx.request({
-              url: url + '?access_token=' + token,
-              header: {
+        var token = app.globalData.baidu_token;
+         _this.waitFuc();
+        wx.request({
+        url: url + '?access_token=' + token,
+        header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
                 //'content-type': 'application/json' //返回json数据
-              },
-              data: {
-                'image': imageStr,
-                'baike_num': 1
-              },
-              method: 'POST',
-              success(res) {
-                if (res.data.result[0].score === 0){
-                  _this.notPlant()
-                }
-                else{
-                  _this.execSetStorage(res)
-                }
-              },
-              fail: function () {
-                wx.navigateTo({
-                  url: '/pages/results/fail/fail',
-                })
-              }
-
-            })
+        },
+         data: {
+           'image': imageStr,
+            'baike_num': 1
           },
+          method: 'POST',
+          success(res) {
+            if (res.data.result[0].score === 0){
+              _this.notPlant()
+            }
+            else{
+                  _this.execSetStorage(res)
+            }
+              },
+          fail: function () {
+            wx.navigateTo({
+              url: '/pages/results/fail/fail',
+            })
+          }
         })
       }
     })

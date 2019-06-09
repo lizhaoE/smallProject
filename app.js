@@ -1,9 +1,10 @@
 //app.js
 App({
   globalData:{
-    token: "token",
+    baidu_token: ''
   },
   onLaunch: function () {
+    var that = this;
     wx.request({
       url: 'https://aip.baidubce.com/oauth/2.0/token',
       header: {
@@ -16,12 +17,7 @@ App({
       },
       method: 'GET',
       success(res) {
-        console.log("token" + res.data.access_token);
-        wx.setStorage({
-          key: 'baidu_token',
-          data: res.data.access_token,
-        })
-
+        that.globalData.baidu_token = res.data.access_token;
       }
     }) 
   }
