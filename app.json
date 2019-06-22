@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/camera/camera",
     "pages/history/history",
     "pages/results/success/success",
     "pages/results/fail/fail",

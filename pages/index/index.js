@@ -3,7 +3,9 @@ var app = getApp();
 
 Page({
   data: {
-    request_url:"https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general"
+    request_url:"https://aip.baidubce.com/rest/2.0/image-classify/v2/advanced_general",
+    hiddenName: true,
+    flash:"off"
   },
 
   execSetStorage: function (response){ //同步数据到缓存并跳转到结果页面
@@ -82,20 +84,15 @@ Page({
       wx.hideLoading()
     }, 2000)
   },
-   
-  //拍照图片事件处理函数
-  camera_pic_serarch: function (callbackData){
-    var that = this;
-    wx.chooseImage({
-      count: 1, // 限定只能选择一张照片
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图
-      sourceType: ['camera'], // 指定选择相机
-      success: function (res) {
-        that.successSearch(res)
-      }
+
+
+  //跳转到拍照识别页面
+  jumpTakePhoto() {
+    wx.navigateTo({
+      url: 'camera/camera',
     })
   },
-  
+
 
   //本地图片事件处理函数
   local_pic_search: function () {
