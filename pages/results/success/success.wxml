@@ -1,14 +1,14 @@
 <view class="container"> 
   <view class="container_grip" >
     <view class="image_style" >
-      <image class="image" src="{{image_url_https}}">
-      </image>
+      <image class="image" src="{{image_url_https}}"></image>
     </view>
   </view>
 
   <view class="container_grip">
     <view class="text_brief">
       <text class="name" selectable="true">【{{responseList[0].name}}】</text>
+      <text class="score" selectable="true">匹配度：{{responseList[0].score*100}}%</text>
       <text class="text" selectable="true">{{responseList[0].baike_info.description}}</text>
     </view>
   </view>

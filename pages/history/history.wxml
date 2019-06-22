@@ -8,6 +8,7 @@
   <view class="container_grip">
     <view class="text_brief">
       <text class="name" selectable="true">【{{responseList[0].name}}】</text>
+      <text class="score" selectable="true">匹配度：{{responseList[0].score*100}}%</text>
       <text class="text" selectable="true">{{responseList[0].baike_info.description}}</text>
     </view>
   </view>
