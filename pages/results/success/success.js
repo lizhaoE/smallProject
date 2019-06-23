@@ -36,12 +36,24 @@ Page({
       
   },
 
-  onLoad: function () {
-    this.execGetStorage("responseList")
+  onShow: function () {
+    this.execGetStorage("responseList") //页面启动渲染时获取并渲染
+  },
 
+  onLoad: function (options) {
+    if (options.responseList != undefined) {
+      wx.setStorage({
+        key: 'responseList',
+        data: JSON.parse(options.responseList),
+      })
+    }
   },
   
   onShareAppMessage: function () {
-
+    var responseList = JSON.stringify(wx.getStorageSync("responseList"))
+    return {
+      title: '小草识花',//分享内容
+      path: '/pages/results/success/success?responseList=' + responseList,//分享地址
+    }
   }
 })

@@ -90,7 +90,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options){
-
+    if (options.responseList !=undefined){
+    wx.setStorage({
+      key: 'responseList',
+      data: JSON.parse(options.responseList),
+    })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -138,6 +143,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
- 
+    var responseList = JSON.stringify(wx.getStorageSync("responseList"))
+    console.log(JSON.stringify(responseList))
+    return {
+      title: '小草识花',//分享内容
+      path: '/pages/history/history?responseList=' + responseList ,//分享地址
+    }
   }
 })
