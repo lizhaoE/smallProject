@@ -22,10 +22,19 @@
    </view>
  </view>
 
+ <view class="button_team">
+
+<view class="button" wx:if="{{responseList}}">
+   <button bindlongpress="longPress"  class="title">记录删除</button>
+  <text class="point_delete">长按清除</text>
+</view>
+<view  class="button" wx:if="{{responseList}}">
+   <button open-type="share"   class="title">分享</button>
+   <text class="point_share">邀请好友一起发现</text>
 </view>
 
-
-<view class="container" wx:if="{{responseList}}">
-  <text bindlongpress="longPress"  class="title">记录删除</text>
-   <text class="point">长按清除</text>
 </view>
+
+</view>
+
+<ad unit-id="adunit-42e02f0288382437"></ad>

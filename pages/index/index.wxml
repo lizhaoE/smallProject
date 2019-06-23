@@ -4,7 +4,7 @@
       <text class="camera_font_style">拍摄识别</text>
       <image class="camera_pic_search" src="/src/pic/morning_glory.jpg"> </image>
     </view>
-
+    
     <view class="local_pic_search" catchtap='local_pic_search'>
       <text class="local_pic_font">来自相册</text>
     </view>

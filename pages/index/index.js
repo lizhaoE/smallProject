@@ -99,7 +99,7 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1, // 限定只能选择一张照片
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图
+      sizeType: ['compressed'], // 可以指定是原图还是压缩图
       sourceType: ['album'], // 指定选择相册
       success: function (res) {
         that.successSearch(res)

@@ -44,7 +44,7 @@ Page({
     }, 2000)
   },
 
-  //打开闪光灯
+  //闪光灯操作函数
   flashFunc: function () {  //等待函数
     if (this.data.flash == "off") {
       this.data.flash = "on"
@@ -57,6 +57,11 @@ Page({
     })
   },
 
+  //防止用户禁用相册保存后无法找到设置
+  saveFunc: function () {  //等待函数
+    this.openConfirm('打开相册权限后，照片将自动保存！')
+  },
+
 
   //拍照图片事件处理函数
   takePhotoFunc() {
@@ -66,7 +71,9 @@ Page({
       quality: 'high',
       success: (res) => {
         var tempFilePaths = res.tempImagePath; // 返回选定照片的本地文件路径列表
-        console.log(tempFilePaths)
+        wx.saveImageToPhotosAlbum({
+          filePath: tempFilePaths,
+        });
         that.imageAddressSetStorage(tempFilePaths),
           wx.getFileSystemManager().readFile({
             filePath: tempFilePaths, //选择图片返回的相对路径
@@ -109,29 +116,27 @@ Page({
   },
 
   //用户未授权相机调用原生相机触发函数
-  error(e) {
+  cameraError(e) {
     wx.getSetting({
       success: (res) => {
         if (!res.authSetting['scope.camera'])
-          this.openConfirm()
+          this.openConfirm('无法打开摄像头，请打开摄像头！')
       }
     }) 
   },
 
 //打开相机权限设置
-  openConfirm: function () {
+  openConfirm: function (msg) {
     var that = this;
     wx.showModal({
-      content: '未打开相机权限，是否打开？',
+      content: msg,
       confirmText: "是",
       cancelText: "否", 
       success: function (res) {
-        console.log(res);
         //点击“确认”时打开设置页面
         if (res.confirm) {
           wx.openSetting({
             success: (res) => { 
-              console.log(res.authSetting['scope.camera']);
               //权限确认后回到第一个tab页面
               wx.switchTab({
                 url: '../../index/index',

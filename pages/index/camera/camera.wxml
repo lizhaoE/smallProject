@@ -1,5 +1,6 @@
 <!--pages/index/camera/camera.wxml-->
-<camera  device-position='back' flash="{{flash}}" binderror="error" style="width: 100%; height: 80%;">
+<camera  device-position='back' flash="{{flash}}" binderror="cameraError" style="width: 100%; height: 80%;">
+<cover-view class="tools">
   <block wx:if="{{flash=='off'}}">
     <cover-image catchtap='flashFunc'  class="flash" src="/src/ico/off_flash.png"></cover-image>
   </block>
@@ -9,10 +10,10 @@
   <block wx:else>
     <cover-image catchtap='flashFunc'  class="flash" src="/src/ico/off_flash.png"></cover-image>
   </block>
+  <cover-image catchtap='saveFunc'  class="save" src="/src/ico/auto_save.png"></cover-image>
+</cover-view>
 </camera>
-
 <view class="bottom_button">
-  <text>拍摄后立即识别</text>
-  <image class="takePhotoPic" catchtap='takePhotoFunc'    src="/src/ico/camera.png"> </image>
+    <text>拍摄后立即识别</text>
+    <image class="takePhotoPic" catchtap='takePhotoFunc'  src="/src/ico/camera.png"> </image>
 </view>
-  

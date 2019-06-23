@@ -67,6 +67,37 @@
   align-items: center;
   flex-wrap: true;
   flex-flow: row wrap;
-  
 }
-  
+
+.button_team{
+  box-shadow: 0px 0px 0px 2px rgb(232, 232, 235);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30rpx;
+  width: 650rpx;
+  background-color: #F7F7FA;
+}
+
+.title{
+  margin-top: 50rpx;
+  width: 280rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  background-color: #009688;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: black;  
+}
+
+
+.button{
+display:flex;
+flex-direction: column;
+}
+.point_share{
+  font-size: 20rpx;
+  color: black; 
+  margin-left: 65rpx;
+}
