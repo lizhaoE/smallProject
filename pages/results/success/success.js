@@ -53,7 +53,7 @@ Page({
     var responseList = JSON.stringify(wx.getStorageSync("responseList"))
     return {
       title: '小草识花',//分享内容
-      path: '/pages/results/success/success?responseList=' + responseList,//分享地址
+      path: '/pages/history/history?responseList=' + responseList,//分享地址
     }
   }
 })
