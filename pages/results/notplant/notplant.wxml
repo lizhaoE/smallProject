@@ -1,6 +1,6 @@
 <view class="container">
   <view class="container_grip">
-    <image class="pic_404" src="/src/pic/notknow.jpeg"> </image>
+    <image class="pic_404" src="/src/pic/notknow.jpg"> </image>
     <text>不是植物哦可能！</text>
   </view>
   <ad unit-id="adunit-42e02f0288382437"></ad>
