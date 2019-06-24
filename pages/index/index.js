@@ -90,7 +90,8 @@ Page({
   jumpTakePhoto() {
     wx.navigateTo({
       url: 'camera/camera',
-    })
+    });
+    wx.saveImageToPhotosAlbum({});//请求保存到相册权限
   },
 
 
