@@ -24,31 +24,19 @@ Page({
     }
 
   },
-  execAddDataToStroage:function(data){ //增加数据到缓存
-    var res = wx.getStorageSync("hisList");
-    var afterRes = res.unshift(data);
-    return afterRes;
-  },
-
-  execDelDataToStorage: function (id) { //删除缓存指定数据
-    var res = wx.getStorageSync("hisList");
-    res.splice(id, 1);
-    return res;
-  },
-
-  execClearDataToStorage: function (id) { //清空缓存数据
-    wx.clearStorageSync();
-  },
-
-  execGetAllTempData: function () {//从缓存获取数据
-    var res = wx.getStorageSync("hisList");
-    return res;
-  },
   
-  execSetStorageSync: function (res) { //同步数据到缓存
-    wx.setStorageSync("hisList", res)
+  //放大预览图片
+  biggerImg:function(e){
+    var _this=this;
+    wx.getStorage({
+      key: "responseList",
+      success: function (res) {
+        wx.previewImage({
+          urls: [_this.http_https(res.data[0].baike_info.image_url)],
+        })
+      },
+    })
   },
-
 
   longPress: function (event) {
     var that = this;

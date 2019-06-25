@@ -20,6 +20,18 @@ Page({
 
   },
 
+  //放大预览图片
+  biggerImg: function (e) {
+    var _this = this;
+    wx.getStorage({
+      key: "responseList",
+      success: function (res) {
+        wx.previewImage({
+          urls: [_this.http_https(res.data[0].baike_info.image_url)],
+        })
+      },
+    })
+  },
 
   execGetStorage: function (response) { //同步数据到缓存并跳转到结果页面
   var _this = this;

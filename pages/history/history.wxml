@@ -1,7 +1,7 @@
 <view class="container_from_success" wx:if="{{responseList}}"> 
   <view class="container_grip" >
     <view class="image_style" >
-      <image class="image" src="{{image_url_https}}">
+      <image catchtap="biggerImg" class="image" src="{{image_url_https}}">
       </image>
     </view>
   </view>
