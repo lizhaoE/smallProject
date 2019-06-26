@@ -8,6 +8,11 @@ Page({
     image_url_https:""
   },
 
+ //清空缓存数据
+  execClearDataToStorage: function (id) {
+    wx.clearStorageSync();
+  },
+
   //获取图片地址
   imageAddressGetStorage: function () {
     var res = wx.getStorageSync("imageAddress");
@@ -47,7 +52,7 @@ Page({
       success: function (res) {
         if (res.confirm) { //判断用户是否点击了确定
         that.execClearDataToStorage(),
-          that.execGetStorageAndRender("responseList") 
+        that.execGetStorageAndRender("responseList") 
         }
       }
     })
