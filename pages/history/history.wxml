@@ -35,8 +35,9 @@
 </view>
 
 </view>
-<view class="container_grip" wx:if="{{responseList}}">
-<ad unit-id="adunit-42e02f0288382437"></ad>
-</view>
+
 </view>
 
+<view class="ad" wx:if="{{responseList}}">
+<ad unit-id="adunit-42e02f0288382437"></ad>
+</view>

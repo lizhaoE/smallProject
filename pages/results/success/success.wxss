@@ -104,3 +104,6 @@ flex-direction: column;
   color: black; 
   margin-left: 65rpx;
 }
+.ad{
+  margin-bottom: 30rpx;
+}

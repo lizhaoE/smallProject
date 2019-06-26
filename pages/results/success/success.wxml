@@ -31,7 +31,8 @@
 </view>
 </view>
 
-  <view class="container_grip">
+</view>
+
+  <view class="ad">
     <ad unit-id="adunit-42e02f0288382437"></ad>
   </view>
-</view>
