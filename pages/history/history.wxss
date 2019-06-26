@@ -51,6 +51,10 @@
   width:300rpx;
   border-radius: 150rpx;
 }
+.review{
+  margin-top: 2px;
+  font-size: 20rpx;
+}
 .text_brief{
   width: 550rpx;
   display: flex;

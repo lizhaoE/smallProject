@@ -3,6 +3,7 @@
     <view class="image_style" >
       <image catchtap="biggerImg" class="image" src="{{image_url_https}}"></image>
     </view>
+    <text class="review">点击预览</text>
   </view>
 
   <view class="container_grip">
