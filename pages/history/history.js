@@ -140,6 +140,7 @@ Page({
     var responseList = JSON.stringify(wx.getStorageSync("responseList"))
     return {
       title: wx.getStorageSync("responseList")[0].name,
+      path: '/pages/history/history?responseList=' + responseList,//分享地址带参数
       imageUrl: _this.http_https(wx.getStorageSync("responseList")[0].baike_info.image_url),
     }
   }
