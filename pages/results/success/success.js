@@ -62,10 +62,11 @@ Page({
   },
   
   onShareAppMessage: function () {
+    var _this = this;
     var responseList = JSON.stringify(wx.getStorageSync("responseList"))
     return {
-      title: '小草识花',//分享内容
-      path: '/pages/history/history?responseList=' + responseList,//分享地址
+      title: wx.getStorageSync("responseList")[0].name ,
+      imageUrl: _this.http_https(wx.getStorageSync("responseList")[0].baike_info.image_url),
     }
   }
 })
