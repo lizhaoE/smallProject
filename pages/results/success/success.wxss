@@ -7,6 +7,7 @@
   padding-bottom: 30rpx;
 }
 .container_grip{
+  box-shadow: 0px 0px 0px 2px rgb(232, 232, 235);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -15,7 +16,6 @@
   background-color: #F7F7FA;
   padding-bottom: 20px;
   padding-top: 20px;
-  border:1px solid #009688;
 }
 .image_style{ 
   display: flex;
@@ -73,7 +73,7 @@
 }
 
 .button_team{
-  border:1px solid #009688;
+  box-shadow: 0px 0px 0px 2px rgb(232, 232, 235);
   display: flex;
   align-items: center;
   flex-direction: column;
