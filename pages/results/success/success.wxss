@@ -103,4 +103,5 @@ flex-direction: column;
   font-size: 20rpx;
   color: black; 
   margin-left: 65rpx;
+  margin-bottom: 30rpx;
 }
