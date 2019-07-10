@@ -14,6 +14,5 @@
 </cover-view>
 </camera>
 <view class="bottom_button">
-    <text>拍摄后立即识别</text>
     <image class="takePhotoPic" catchtap='takePhotoFunc'  src="/src/ico/camera.png"> </image>
 </view>
