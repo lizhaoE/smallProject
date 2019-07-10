@@ -35,9 +35,9 @@ Page({
   },
 
   successSearch: function (res) {           //拍照&图片上传查询公共函数
-    var _this = this;
+    var that = this;
     var tempFilePaths = res.tempFilePaths; // 返回选定照片的本地文件路径列表
-    _this.imageAddressSetStorage(tempFilePaths[0]),
+    that.imageAddressSetStorage(tempFilePaths[0]),
     wx.getFileSystemManager().readFile({
       filePath: tempFilePaths[0], //选择图片返回的相对路径
       encoding: 'base64', //编码格式
@@ -46,7 +46,7 @@ Page({
         //  console.log('data:image/png;base64,' + res.data)
         var url = 'https://aip.baidubce.com/rest/2.0/image-classify/v1/plant';
         var token = app.globalData.baidu_token;
-         _this.waitFuc();
+         that.waitFuc();
         wx.request({
         url: url + '?access_token=' + token,
         header: {
