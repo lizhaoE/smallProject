@@ -59,13 +59,17 @@ Page({
           },
           method: 'POST',
           success(res) {
-            if (res.data.result[0].score === 0){
-              _this.notPlant()
+            try {
+              if (res.data.result[0].score === 0) {
+                that.notPlant()
+              }
+              else {
+                that.execSetStorage(res)
+              }
+            } catch (error) {
+              that.notPlant()
             }
-            else{
-                  _this.execSetStorage(res)
-            }
-              },
+          },
           fail: function () {
             wx.navigateTo({
               url: '/pages/results/fail/fail',

@@ -96,11 +96,15 @@ Page({
                 },
                 method: 'POST',
                 success(res) {
+                  try{
                   if (res.data.result[0].score === 0) {
                     that.notPlant()
                   }
                   else {
                     that.execSetStorage(res)
+                  }
+                  }catch(error){
+                    that.notPlant()
                   }
                 },
                 fail: function () {
