@@ -6,6 +6,11 @@
     </view>
       <text class="review">点击预览</text>
   </view>
+
+  <view class="container_grip" >
+    <ad unit-id="adunit-1ce307a49cd91ea8" ad-intervals="30"></ad>
+  </view>
+
   <view class="container_grip">
     <view class="text_brief">
       <text class="name" selectable="true">【{{responseList[0].name}}】</text>

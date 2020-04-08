@@ -12,7 +12,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 30rpx;
-  width: 650rpx;
+  width: 700rpx;
   background-color: #F7F7FA;
   padding-bottom: 20px;
   padding-top: 20px;
@@ -78,7 +78,7 @@
   align-items: center;
   flex-direction: column;
   margin-top: 30rpx;
-  width: 650rpx;
+  width: 700rpx;
   background-color: #F7F7FA;
 }
 
