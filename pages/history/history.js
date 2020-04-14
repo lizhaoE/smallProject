@@ -25,7 +25,14 @@ Page({
       return this.imageAddressGetStorage()
     }
     else {
-      return url.replace("http", "https")
+      if(url.search("https") == -1)
+      {
+        return url.replace("http", "https")
+      }
+      else
+      {
+        return url
+      }
     }
 
   },
