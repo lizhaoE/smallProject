@@ -1,5 +1,8 @@
 <!--index.wxml-->
   <view class="container">
+    <view style="width:100%;">
+      <official-account></official-account>
+    </view>
     <view class="pic" catchtap='jumpTakePhoto'>
       <text class="camera_font_style">拍摄识别</text>
       <image class="camera_pic_search" src="/src/pic/morning_glory.jpg"> </image>
