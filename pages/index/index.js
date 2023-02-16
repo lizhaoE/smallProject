@@ -36,10 +36,10 @@ Page({
 
   successSearch: function (res) {           //拍照&图片上传查询公共函数
     var that = this;
-    var tempFilePaths = res.tempFilePaths; // 返回选定照片的本地文件路径列表
-    that.imageAddressSetStorage(tempFilePaths[0]),
+    var tempFilePath = res.tempFiles[0].tempFilePath; // 返回选定照片的本地文件路径列表
+    that.imageAddressSetStorage(tempFilePath),
     wx.getFileSystemManager().readFile({
-      filePath: tempFilePaths[0], //选择图片返回的相对路径
+      filePath: tempFilePath, //选择图片返回的相对路径
       encoding: 'base64', //编码格式
       success: res => { //成功的回调
         var imageStr = res.data;
@@ -60,7 +60,7 @@ Page({
           method: 'POST',
           success(res) {
             try {
-              if (res.data.result[0].score === 0) {
+              if (res.data.result[0].name === "非植物") {
                 that.notPlant()
               }
               else {
@@ -102,8 +102,9 @@ Page({
   //本地图片事件处理函数
   local_pic_search: function () {
     var that = this;
-    wx.chooseImage({
+    wx.chooseMedia({
       count: 1, // 限定只能选择一张照片
+      mediaType:['image'],//选择媒体类型
       sizeType: ['compressed'], // 可以指定是原图还是压缩图
       sourceType: ['album'], // 指定选择相册
       success: function (res) {

@@ -1,6 +1,6 @@
 <view class="container">
   <view class="container_grip">
     <image class="pic_404" src="/src/pic/notknow.jpg"> </image>
-    <text>不是植物哦可能！</text>
+    <text>您上传的不是植物哦！</text>
   </view>
 </view>

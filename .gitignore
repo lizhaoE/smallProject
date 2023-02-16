@@ -1,3 +1,6 @@
 *.DS_Store
 project.config.json
 .gitignore
+project.config.json
+project.private.config.json
+app.js

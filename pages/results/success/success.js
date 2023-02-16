@@ -1,3 +1,4 @@
+let interstitialAd = null
 Page({
 
   data: {
@@ -54,12 +55,31 @@ Page({
     })
       
   },
-
+  showAd: function () {
+    // 定时器实现1秒钟后显示
+    setTimeout(function () {
+      // 在适合的场景显示插屏广告
+      if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+          console.error(err)
+        })
+      }
+    }, 1000);
+  },
   onShow: function () {
+    this.showAd()
     this.execGetStorage("responseList") //页面启动渲染时获取并渲染
   },
 
   onLoad: function (options) {
+    if (wx.createInterstitialAd) {
+      interstitialAd = wx.createInterstitialAd({
+        adUnitId: 'adunit-1382065c80410acf'
+      })
+      interstitialAd.onLoad(() => {})
+      interstitialAd.onError((err) => {})
+      interstitialAd.onClose(() => {})
+    }
     if (options.responseList != undefined) {
       wx.setStorage({
         key: 'responseList',
